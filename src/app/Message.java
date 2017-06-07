@@ -43,4 +43,29 @@ public class Message implements Serializable {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 29;
+        int result = 1;
+        result = prime * result + username.hashCode();
+        result = prime * result + message.hashCode();
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Message other = (Message) obj;
+        if (!username.equals(other.username))
+            return false;
+        if (!message.equals(other.message))
+            return false;
+        return true;
+    }
 }
